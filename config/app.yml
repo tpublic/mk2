@@ -1,0 +1,52 @@
+app:
+  name: "FeingKube"
+  domain: "staging.feingkai.com"
+  subdomain: "www"
+ssl:
+  enabled: true
+  email: "support@example.com"
+images:
+  peatio: docker.bluelight.limited:5000/feingkai/peatio:latest
+  barong: docker.bluelight.limited:5000/bluelightltd/barong-2.0.51:latest
+  frontend: docker.bluelight.limited:5000/bluelightltd/mikroapp:latest
+  tower: docker.bluelight.limited:5000/feingkai/tower:latest
+  postmaster: docker.bluelight.limited:5000/feingkai/postmaster-0.0.3:latest
+  arke: rubykube/arke:0.1.5
+vendor:
+  frontend: https://github.com/rubykube/mikroapp.git
+storage:
+  provider: "Google"
+  bucketName: "microkube-barong-docs-bucket"
+  accessKey: "**********"
+  secretKey: "**********"
+terraform:
+  credentials: "~/safe/microkube.json"
+  project: "example-microkube"
+  region: "europe-west4"
+  zone: "europe-west4-a"
+  instance_name: "microkube-cloud"
+  machine_type: "n1-standard-4"
+  image: "debian-cloud/debian-9"
+twilio:
+  phone_number: "+15005550000"
+  account_sid: "changeme"
+  auth_token: "changeme"
+sendgrid_api_key: "sendgrid_api_key_SED_IN_DEPLOYMENT_FOR_REPLACING"
+arke:
+  strategy:
+    type: 'copy'
+    pair: 'BTCUSD'
+    target:
+      driver: rubykube
+      market: 'BTCUSD'
+      host: 'http://peatio:8000'
+      name: arke@arke.io
+      key: f351baf4291993b4
+      secret: 2a224f4660ff697bad88c84831a5a3fa
+    sources:
+      - driver: binance
+        market: 'BTCUSDT'
+        host: "api.binance.com"
+        name: binance.com@infosoc.net
+        key: ZFAHWF8sKipWuHfmUazSlC0bOubLXM4CqQRsqkwMfikWMynMGWnDWcvs7MyROlR2
+        secret: 5JKLk9YwxfBQ5rzcje36SVHHf0ZEvqaDnbvfK9qJvKOSMrwabFQJgwGxpWH1kBxG
