@@ -29,8 +29,8 @@ terraform:
   image: "debian-cloud/debian-9"
 twilio:
   phone_number: "+15005550000"
-  account_sid: "changeme"
-  auth_token: "changeme"
+  account_sid: "twilio-account_sid-changeme"
+  auth_token: "twilio-auth_token-changeme"
 sendgrid_api_key: "sendgrid_api_key_SED_IN_DEPLOYMENT_FOR_REPLACING"
 arke:
   strategy:
@@ -48,5 +48,5 @@ arke:
         market: 'BTCUSDT'
         host: "api.binance.com"
         name: binance.com@infosoc.net
-        key: ZFAHWF8sKipWuHfmUazSlC0bOubLXM4CqQRsqkwMfikWMynMGWnDWcvs7MyROlR2
-        secret: 5JKLk9YwxfBQ5rzcje36SVHHf0ZEvqaDnbvfK9qJvKOSMrwabFQJgwGxpWH1kBxG
+        key: arke-source-binance-key-changeme
+        secret: arke-source-binance-secret-changeme
