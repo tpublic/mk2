@@ -147,6 +147,36 @@
 
 
 
+            {
+                "connect_timeout": "3s",
+                "lb_policy": "ROUND_ROBIN",
+                "load_assignment": {
+                    "cluster_name": "cluster_fx-security_80",
+                    "endpoints": [
+                        {
+                            "lb_endpoints": [
+                                {
+                                    "endpoint": {
+                                        "address": {
+                                            "socket_address": {
+                                                "address": "fx-security",
+                                                "port_value": 80,
+                                                "protocol": "TCP"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "cluster_fx-security_80",
+                "type": "STRICT_DNS"
+            },
+
+
+
+
 
 
             {
@@ -732,6 +762,44 @@
                                                                 "clusters": [
                                                                     {
                                                                         "name": "cluster_fx-account_80",
+                                                                        "weight": 100.0
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+
+
+
+
+
+                                                    {
+                                                        "match": {
+                                                            "case_sensitive": true,
+                                                            "headers": [
+                                                                {
+                                                                    "exact_match": "<%= @config['app']['subdomain'] %>.<%= @config['app']['domain'] %>",
+                                                                    "name": ":authority"
+                                                                }
+                                                            ],
+                                                            "prefix": "/account"
+                                                        },
+                                                        "route": {
+                                                            "cors": {
+                                                                "allow_methods": "POST, GET, OPTIONS",
+                                                                "allow_origin": [
+                                                                    "*"
+                                                                ],
+                                                                "enabled": true,
+                                                                "max_age": "6400"
+                                                            },
+                                                            "prefix_rewrite": "/account",
+                                                            "priority": null,
+                                                            "timeout": "3.000s",
+                                                            "weighted_clusters": {
+                                                                "clusters": [
+                                                                    {
+                                                                        "name": "cluster_fx-security_80",
                                                                         "weight": 100.0
                                                                     }
                                                                 ]

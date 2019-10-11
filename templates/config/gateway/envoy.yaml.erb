@@ -68,6 +68,10 @@ static_resources:
                   prefix: "/dashboard"
                 route:
                   cluster: fx-dashboard
+              - match:
+                  prefix: "/security"
+                route:
+                  cluster: fx-security
 
 
 
@@ -196,7 +200,16 @@ static_resources:
         address: fx-markets
         port_value: 80
 
-
+  - name: fx-security
+    connect_timeout: 0.25s
+    type: strict_dns
+    lb_policy: round_robin
+    hosts:
+    - socket_address:
+        address: fx-security
+        port_value: 80
+    
+    
                                         
 
 
