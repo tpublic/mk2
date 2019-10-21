@@ -26,6 +26,14 @@ static_resources:
                 route:
                   cluster: barong
                   prefix_rewrite: "/api/v2/"
+
+              - match:
+                  prefix: "/api/v2/applogic"
+                route:
+                  cluster: applogic
+                  prefix_rewrite: "/api/v2/"
+
+
               - match:
                   prefix: "/api/v2/peatio/account-disabled"
                 route:
@@ -127,6 +135,20 @@ static_resources:
     - socket_address:
         address: barong
         port_value: 8001
+
+
+  - name: applogic
+    connect_timeout: 0.25s
+    type: strict_dns
+    lb_policy: round_robin
+    hosts:
+    - socket_address:
+        address: applogic
+        port_value: 3000
+    
+    
+    
+
   - name: peatio-trading-ui
     connect_timeout: 0.25s
     type: strict_dns
