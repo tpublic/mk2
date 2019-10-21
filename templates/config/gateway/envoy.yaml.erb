@@ -34,16 +34,16 @@ static_resources:
               - match:
                   prefix: "/api/v2/peatio"
                 route:
-                  cluster: peatio
+                  cluster: peatio-2-3-43
                   prefix_rewrite: "/api/v2/"
               - match:
                   prefix: "/admin"
                 route:
-                  cluster: peatio
+                  cluster: peatio-2-3-43
               - match:
                   prefix: "/assets/"
                 route:
-                  cluster: peatio
+                  cluster: peatio-2-3-43
               - match:
                   prefix: "/trading-ui-assets/"
                 route:
@@ -159,6 +159,28 @@ static_resources:
     - socket_address:
         address: peatio-1-9-24
         port_value: 8000
+
+  - name: peatio-2-2-30
+    connect_timeout: 0.25s
+    type: strict_dns
+    lb_policy: round_robin
+    hosts:
+    - socket_address:
+        address: peatio-2-2-30
+        port_value: 8000
+
+
+  - name: peatio-2-3-43
+    connect_timeout: 0.25s
+    type: strict_dns
+    lb_policy: round_robin
+    hosts:
+    - socket_address:
+        address: peatio-2-3-43
+        port_value: 8000
+
+
+        
 
 
   - name: fx-wallets

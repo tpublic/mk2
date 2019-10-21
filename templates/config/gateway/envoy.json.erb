@@ -326,6 +326,8 @@
                 "name": "cluster_peatio_8000",
                 "type": "STRICT_DNS"
             },
+
+
             {
                 "connect_timeout": "3s",
                 "lb_policy": "ROUND_ROBIN",
@@ -352,6 +354,68 @@
                 "name": "cluster_peatio_1_9_24_8000",
                 "type": "STRICT_DNS"
             },
+
+
+
+
+            {
+                "connect_timeout": "3s",
+                "lb_policy": "ROUND_ROBIN",
+                "load_assignment": {
+                    "cluster_name": "cluster_peatio_2_2_30_8000",
+                    "endpoints": [
+                        {
+                            "lb_endpoints": [
+                                {
+                                    "endpoint": {
+                                        "address": {
+                                            "socket_address": {
+                                                "address": "peatio-2-2-30",
+                                                "port_value": 8000,
+                                                "protocol": "TCP"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "cluster_peatio_2_2_30_8000",
+                "type": "STRICT_DNS"
+            },
+
+
+
+
+            {
+                "connect_timeout": "3s",
+                "lb_policy": "ROUND_ROBIN",
+                "load_assignment": {
+                    "cluster_name": "cluster_peatio_2_3_43_8000",
+                    "endpoints": [
+                        {
+                            "lb_endpoints": [
+                                {
+                                    "endpoint": {
+                                        "address": {
+                                            "socket_address": {
+                                                "address": "peatio-2-3-43",
+                                                "port_value": 8000,
+                                                "protocol": "TCP"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "cluster_peatio_2_3_43_8000",
+                "type": "STRICT_DNS"
+            },
+
+
             {
                 "connect_timeout": "3s",
                 "lb_policy": "ROUND_ROBIN",
