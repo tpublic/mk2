@@ -15,10 +15,10 @@ images:
 vendor:
   frontend: https://github.com/rubykube/mikroapp.git
 storage:
-  provider: "Google"
-  bucketName: "microkube-barong-docs-bucket"
-  accessKey: "**********"
-  secretKey: "**********"
+  provider: "storage_provider_SED_IN_DEPLOYMENT_FOR_REPLACING"
+  bucketName: "storage_bucket_name_SED_IN_DEPLOYMENT_FOR_REPLACING"
+  accessKey: "storage_api_key_SED_IN_DEPLOYMENT_FOR_REPLACING"
+  secretKey: "storage_secret_key_SED_IN_DEPLOYMENT_FOR_REPLACING"
 terraform:
   credentials: "~/safe/microkube.json"
   project: "example-microkube"
